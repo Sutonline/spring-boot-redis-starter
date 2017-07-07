@@ -8,7 +8,7 @@ import java.util.Set;
  * Created by sut on 2017/7/6.
  */
 @ConfigurationProperties(prefix = "redis")
-public class RedisProperties {
+public class LocalRedisProperties {
 
 
     private String url;

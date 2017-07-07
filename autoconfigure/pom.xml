@@ -3,30 +3,37 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.kevin.spring.boot</groupId>
+        <artifactId>dependencies</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../dependencies</relativePath>
+    </parent>
 
-    <groupId>cn.kevin.spring.boot</groupId>
     <artifactId>autoconfigure</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.4.RELEASE</version>
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class></start-class>
         <java.version>1.8</java.version>
         <jedis.version>2.9.0</jedis.version>
+
+        <!-- maven plugin -->
+        <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
     </properties>
 
-    <dependencies>
 
+    <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -35,7 +42,6 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>${jedis.version}</version>
         </dependency>
     </dependencies>
 
@@ -45,8 +51,29 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>jd-central</id>
+            <name>libs-releases</name>
+            <url>http://artifactory.360buy-develop.com/libs-releases-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>jd-snapshots</id>
+            <name>libs-snapshots</name>
+            <url>http://artifactory.360buy-develop.com/libs-snapshots-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>

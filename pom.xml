@@ -10,7 +10,20 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>autoconfigure</module>
+        <module>redis-starter</module>
+        <module>dependencies</module>
     </modules>
 
-
+    <distributionManagement>
+        <repository>
+            <id>jd-central</id>
+            <name>libs-releases</name>
+            <url>http://artifactory.360buy-develop.com/libs-releases-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>jd-snapshots</id>
+            <name>libs-snapshots</name>
+            <url>http://artifactory.360buy-develop.com/libs-snapshots-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

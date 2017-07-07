@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-cn.kevin.spring.boot.autoconfiguration.AutoConfiguration
+cn.kevin.spring.boot.autoconfigure.LocalRedisAutoConfiguration
